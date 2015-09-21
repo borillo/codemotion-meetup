@@ -1,0 +1,14 @@
+{
+  "name": "webpack-react",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "webpack app.jsx bundle.js"
+  },
+  "devDependencies": {
+    "jsx-loader": "^0.13.2"
+  },
+  "dependencies": {
+    "react": "^0.13.3"
+  }
+}

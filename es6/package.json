@@ -1,0 +1,12 @@
+{
+  "name": "destructuring",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "mocha --watch --compilers js:babel/register"
+  },
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "mocha": "^2.3.2",
+    "should": "^7.1.0"
+  }
+}

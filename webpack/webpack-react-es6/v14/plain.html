@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello React</title>
+    <script src="node_modules/react/dist/react.min.js"></script>
+    <script src="node_modules/babel-core/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="content"></div>
+
+    <script type="text/babel">
+        class Hello extends React.Component {
+            constructor(props) {
+                super(props);
+                this.displayName = 'HelloReact';
+            }
+
+            render() {
+                return <div>Hello React</div>;
+            }
+        }
+
+        React.render(<Hello />, document.getElementById("content"));
+    </script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "name": "webpack-css",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "webpack app.js bundle.js"
+  },
+  "devDependencies": {
+    "css-loader": "^0.17.0",
+    "node-sass": "^3.3.2",
+    "sass-loader": "^2.0.1",
+    "style-loader": "^0.12.3"
+  }
+}

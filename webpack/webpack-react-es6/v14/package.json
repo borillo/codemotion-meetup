@@ -1,0 +1,14 @@
+{
+  "name": "webpack-react-es6",
+  "version": "1.0.0",
+  "main": "app.jsx",
+  "scripts": {
+    "start": "webpack app.jsx bundle.js"
+  },
+  "devDependencies": {
+    "babel-core": "^5.8.24"
+  },
+  "dependencies": {
+    "react": "^0.14.0-rc1"
+  }
+}

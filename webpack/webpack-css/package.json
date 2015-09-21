@@ -1,0 +1,16 @@
+{
+  "name": "webpack-css",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack app.js bundle.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "css-loader": "^0.17.0",
+    "style-loader": "^0.12.3"
+  }
+}

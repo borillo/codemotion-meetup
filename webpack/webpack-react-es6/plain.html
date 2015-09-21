@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello React</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
+  </head>
+  <body>
+    <div id="content"></div>
+
+    <script type="text/jsx;harmony=true">
+        class Hello extends React.Component {
+            constructor(props) {
+                super(props);
+                this.displayName = 'HelloReact';
+            }
+
+            render() {
+                return <div>Hello React</div>;
+            }
+        }
+
+        React.render(<Hello />, document.getElementById("content"));
+    </script>
+</body>
+</html>
