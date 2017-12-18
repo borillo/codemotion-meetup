@@ -1,17 +1,16 @@
-import { one, two, value } from './../dependency.js';
-import should from 'should';
+import dep from './../dependency';
 
 describe('es6', function () {
     describe('let and const', function () {
         it('can defined variables with let', function () {
             let value = 32;
-            value.should.equal(32);
+            expect(value).toEqual(32);
         });
 
         it('can define const values', function () {
             const value = 32;
             //value = 23;
-            value.should.equal(32);
+            expect(value).toEqual(32);
         });
 
         it('variables are block-scoped', function () {
@@ -23,20 +22,14 @@ describe('es6', function () {
                 let value = 23;
             }
 
-            es5Value.should.equal(23);
-            value.should.equal(32);
-        });
-
-        it('reference error when no function defined', function () {
-            (function () {
-                nonExistingVariable = 32;
-            }).should.throwError(/^.*is not defined$/)
+            expect(es5Value).toEqual(23);
+            expect(value).toEqual(32);
         });
     });
 
     describe('template literals', function () {
         it('all kinds of quotes', function () {
-            `I'm "amazed"`.should.equal('I\'m "amazed"');
+            expect(`I'm "amazed"`).toEqual('I\'m "amazed"');
         });
 
         it('multiline', function () {
@@ -44,13 +37,13 @@ describe('es6', function () {
 My
 Friends`;
 
-            greeting.should.equal('Hi\nMy\nFriends');
+            expect(greeting).toEqual('Hi\nMy\nFriends');
         });
 
         it('interpolate variables', function () {
             let name = 'Ricardo';
 
-            `Hi ${name}`.should.equal('Hi Ricardo');
+            expect(`Hi ${name}`).toEqual('Hi Ricardo');
         });
     });
 
@@ -58,7 +51,7 @@ Friends`;
         it('inline functions', function () {
             let result = [1, 2, 3].map(num => num * 2);
 
-            result.should.deepEqual([2, 4, 6]);
+            expect(result).toEqual([2, 4, 6]);
         });
 
         it('multiple block lines', function () {
@@ -67,7 +60,7 @@ Friends`;
                 return num * multiplier;
             });
 
-            result.should.deepEqual([2, 4, 6, 8]);
+            expect(result).toEqual([2, 4, 6, 8]);
         });
     });
 
@@ -75,38 +68,38 @@ Friends`;
         it('arrays', function () {
             var [a, , b] = [1, 2, 3];
 
-            a.should.equal(1);
-            b.should.equal(3);
+            expect(a).toEqual(1);
+            expect(b).toEqual(3);
         });
 
         it('objects', function () {
-            var user = {name: 'Ricardo Borillo', age: 38};
+            var user = {name: 'Ricardo Borillo', age: 40};
             var {name, age} = user;
 
-            name.should.equal('Ricardo Borillo');
-            age.should.equal(38);
+            expect(name).toEqual('Ricardo Borillo');
+            expect(age).toEqual(40);
         });
 
         it('aliases', function () {
-            var user = {name: 'Ricardo Borillo', age: 38};
+            var user = {name: 'Ricardo Borillo', age: 40};
             var {name: myName, age} = user;
 
-            myName.should.equal('Ricardo Borillo');
+            expect(myName).toEqual('Ricardo Borillo');
         });
 
         it('default values', function () {
             let {foo=3} = {foo: 2};
-            foo.should.equal(2);
+            expect(foo).toEqual(2);
 
             var {fooo=3} = {bar: 2};
-            fooo.should.equal(3);
+            expect(fooo).toEqual(3);
         });
 
         it('optional parameters', function () {
             const mult = (a = 2, b = 30) => a * b;
 
-            mult().should.equal(60);
-            mult(7, 8).should.equal(56);
+            expect(mult()).toEqual(60);
+            expect(mult(7, 8)).toEqual(56);
         });
     });
 
@@ -119,7 +112,7 @@ Friends`;
                 }
             };
 
-            user.show().should.equal('Ricardo')
+            expect(user.show()).toEqual('Ricardo')
         });
 
         it('getters and setters', function () {
@@ -134,7 +127,7 @@ Friends`;
             };
 
             user.name = 'Ricardo';
-            user._name.should.equal('Ricardo');
+            expect(user._name).toEqual('Ricardo');
         });
     });
 
@@ -150,7 +143,7 @@ Friends`;
 
             let es5Car = new OldCar();
             es5Car.move();
-            es5Car.fuel.should.equal(9);
+            expect(es5Car.fuel).toEqual(9);
 
             class Car {
                 constructor() {
@@ -164,7 +157,7 @@ Friends`;
 
             let car = new Car();
             car.move();
-            car.fuel.should.equal(9);
+            expect(car.fuel).toEqual(9);
 
             class ExpensiveCar extends Car {
                 move() {
@@ -174,15 +167,15 @@ Friends`;
 
             let expensiveCar = new ExpensiveCar();
             expensiveCar.move();
-            expensiveCar.fuel.should.equal(5);
+            expect(expensiveCar.fuel).toEqual(5);
         });
     });
 
     describe('modules', function () {
         it('import statements', function () {
-            value.should.equal(23);
-            one().should.equal('one');
-            two().should.equal('two');
+            expect(dep.value).toEqual(23);
+            expect(dep.one()).toEqual('one');
+            expect(dep.two()).toEqual('two');
         });
     });
 
@@ -192,7 +185,7 @@ Friends`;
             let surname = 'Borillo';
             let user = {name, surname};
 
-            user.should.deepEqual({name: 'Ricardo', surname: 'Borillo'});
+            expect(user).toEqual({name: 'Ricardo', surname: 'Borillo'});
         });
     });
 
@@ -201,12 +194,12 @@ Friends`;
             const list = [1, 2, 3, 4];
             let a = list[0], rest = list.slice(1);
 
-            a.should.equal(1);
-            rest.should.deepEqual([2, 3, 4]);
+            expect(a).toEqual(1);
+            expect(rest).toEqual([2, 3, 4]);
 
             [a, ...rest] = list;
-            a.should.equal(1);
-            rest.should.deepEqual([2, 3, 4]);
+            expect(a).toEqual(1);
+            expect(rest).toEqual([2, 3, 4]);
         });
 
         it('function array argument', function () {
@@ -218,13 +211,13 @@ Friends`;
                 return words.join(' ');
             }
 
-            concatES5('Hola', 'Ricardo', '!!').should.equal('Hola Ricardo !!');
-            concatES6('Hola', 'Ricardo', '!!').should.equal('Hola Ricardo !!');
+            expect(concatES5('Hola', 'Ricardo', '!!')).toEqual('Hola Ricardo !!');
+            expect(concatES6('Hola', 'Ricardo', '!!')).toEqual('Hola Ricardo !!');
         });
 
         it('concatenate arrays', function () {
-            [1, 2].concat([3, 4]).should.deepEqual([1, 2, 3, 4]);
-            [1, 2, ...[3, 4]].should.deepEqual([1, 2, 3, 4]);
+            expect([1, 2].concat([3, 4])).toEqual([1, 2, 3, 4]);
+            expect([1, 2, ...[3, 4]]).toEqual([1, 2, 3, 4]);
         });
     });
 });

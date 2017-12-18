@@ -2,11 +2,15 @@
   "name": "destructuring",
   "version": "1.0.0",
   "scripts": {
-    "test": "mocha --watch --compilers js:babel/register"
+    "test": "jest"
   },
   "devDependencies": {
-    "babel": "^5.8.23",
-    "mocha": "^2.3.2",
-    "should": "^7.1.0"
+    "babel": "^6.23.0",
+    "babel-core": "^6.26.0",
+    "babel-jest": "^22.0.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "jest": "^22.0.0",
+    "regenerator-runtime": "^0.11.1"
   }
 }
