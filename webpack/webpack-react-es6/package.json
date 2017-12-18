@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "start": "webpack app.jsx bundle.js"
+    "start": "webpack app.js bundle.js"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
