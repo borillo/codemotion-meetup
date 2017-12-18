@@ -1,14 +1,14 @@
-module.exports = {
+npmodule.exports = {
    entry: './app.js',
    output: {
-      path: '.',
+      path: __dirname,
       filename: 'bundle.js'
    },
    module: {
       loaders: [
          { 
             test: /\.css$/,
-            loader: 'style!css!autoprefixer'
+            loader: 'style-loader!css-loader!autoprefixer-loader'
          }
       ]
    }

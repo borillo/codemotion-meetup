@@ -1,12 +1,12 @@
 module.exports = {
    entry: './app.js',
    output: {
-      path: '.',
+      path: __dirname,
       filename: 'bundle.js'
    },
    module: {
       loaders: [
-         { test: /\.scss$/, loader: 'style!css!sass' }
+         { test: /\.scss$/, loader: 'style-loader!css-loader!sass-loader' }
       ]
    }
 }

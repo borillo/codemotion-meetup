@@ -1,18 +1,20 @@
 module.exports = {
     entry: './app',
     output: {
-        path: '.',
+        path: __dirname,
         filename: 'bundle.js'
     },
     module: {
         loaders: [
             {
-                test: /\.jsx?/,
-                loader: 'babel'
+                test: /\.js/,
+                exclude: /node_modules/, 
+                loader: "babel-loader", 
+                query:
+                {
+                    presets:['react']
+                }
             }
         ]
-    },
-    resolve: {
-        extensions: ["", ".js", ".jsx"]
     }
 };
